@@ -1,0 +1,282 @@
+body{
+    margin: 0;
+}
+
+.general{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.left{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerL{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+font-weight: 700;
+text-align: left;
+color: white;
+margin: 0;
+}
+
+.subtitle{
+    font-weight: 500;
+    text-align: left;
+    color: white;
+    margin: 0;
+}
+
+.readmore{
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerR{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.texts{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: 400;
+    min-width: 300px;
+    margin-top: -16px;
+    margin-bottom: 20px;
+}
+
+.main{
+    font-size: 26px;
+    font-weight: 700;
+}
+
+p{
+    margin: 0;
+}
+
+.texts a{
+    text-decoration: none;
+    font-weight: 600;
+    color: #0575E6;
+}
+
+.texts a:visited{
+    text-decoration: none;
+    font-weight: 600;
+    color: #0575E6;
+}
+
+.formEntry{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.input{
+    display: flex;
+    padding: 18px 26px;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 30px;
+    border: 1px solid #EEE;
+    background: #FFF;
+}
+
+input{
+    border: 0;
+    width: 100%;
+}
+
+::placeholder{
+    opacity: 0.30000001192092896;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.entryBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 26px;
+    border-radius: 30px;
+    background: #0575E6;  
+    border-style: none;
+    transition: ease-out 300ms;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFF;
+}
+
+.entryBtn:hover{
+    background-color: #0553A3;
+    transition: ease-out 300ms;
+}
+
+.forget{
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.699999988079071;
+    align-self: center;
+    text-decoration: none;
+    color: #333;
+}
+
+@media screen and (max-width: 767px) {
+
+    .general{
+        flex-direction: column;
+    }
+
+    .left{ 
+        flex-direction: column;
+        background: linear-gradient(180deg, #0575E6 0%, #02298A 84.79%, #021B79 100%);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+        height: 20vh;
+        width: 100vw;
+        min-height: 171px;
+    }
+
+    .containerL{
+        align-items: flex-start;
+        justify-content: center;
+        height: 100%;
+        width: 80vw;
+        min-width: 330px;
+        max-width: 400px;   
+    }
+
+    .title{
+        font-size: 24px;
+    }
+
+    .subtitle{
+        font-size: 12px;
+    }
+
+    .readmore{
+        display: none;
+    }
+
+    .right{
+        height: 80vh;
+        width: 100vw;
+        min-height: 490px;
+        margin-top: -30px;
+    }
+
+    .containerR{
+        align-items: flex-start;
+        height: 50vh;
+        width: 80vw;
+        min-width: 300px; 
+        max-width: 400px;  
+    }
+
+    .texts a{
+        color: #0575E6;
+    }
+
+    .input{
+        max-width: (400-54)px;
+    }
+
+    .entryBtn{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:767px){
+
+    .general{
+        flex-direction: row;
+    }
+
+    .left{
+        flex-direction: row;
+        background: url(Ellipses.svg), linear-gradient(180deg, #0575E6 0%, #02298A 84.79%, #021B79 100%);
+        background-repeat: no-repeat;
+        background-position: 0% 100%;
+        height: 100vh;
+        width: 66vw;   
+    }
+    
+    .containerL{
+        align-items: center;
+        justify-content: flex-start;
+        gap: 23px;
+    }
+
+    .title{
+        font-size: 40px;
+    }
+    
+    .subtitle{
+        font-size: 18px;
+    }
+    
+    .readmore{
+        display: flex;
+    }
+
+    .readmore a{
+        padding: 8px 30px;
+        color: #FFF;
+        font-size: 14px;
+        font-weight: 400;
+        border-radius: 30px;
+        background: #0575E6;
+        border-style: none;
+        transition: ease-out 300ms;
+        text-decoration: none;
+    }
+
+    .readmore a:hover{
+        background-color: #0553A3;
+        transition: ease-out 300ms;
+    } 
+
+    .right{
+        height: 100vh;
+        width: 34vw;
+    }
+    
+    .containerR{
+        justify-content: center;
+        z-index: 1;
+        height: 100vh;
+        width: 80%;
+        margin-top: 30px;
+    }
+    
+    .input{
+        min-width: 200px;
+        max-width: (500-54)px;
+    }
+    
+    .entryBtn{
+        min-width: 254px;
+        max-width: 100%;
+    }    
+}
