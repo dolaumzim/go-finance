@@ -1,0 +1,83 @@
+.rightSide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 34vw;
+}
+
+.rightContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    z-index: 1;
+    height: 100vh;
+    width: 70%;
+    margin-top: 30px;
+}
+
+.titleRight{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: 400;
+    min-width: 300px;
+    margin-top: -16px;
+    margin-bottom: 20px;
+}
+
+.main{
+    font-size: 26px;
+    font-weight: 700;
+}
+
+p{
+    margin: 0;
+}
+
+.titleRight a{
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.titleRight a:visited{
+    text-decoration: none;
+    font-weight: 600;
+    color: #0575E6;
+}
+
+.formEntry{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+}
+
+input{
+    border: 0;
+    width: 100%;
+}
+
+::placeholder{
+    opacity: 0.30000001192092896;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.forget{
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.699999988079071;
+    align-self: center;
+    text-decoration: none;
+    color: #333;
+}
+
+
+
