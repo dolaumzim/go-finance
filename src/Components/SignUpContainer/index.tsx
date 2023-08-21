@@ -1,9 +1,11 @@
 import { Button } from '../Button'
-import { Formik, Form  } from 'formik'
+import { Formik, Form, Field  } from 'formik'
 import './styles.css'
 import { lockSVG, mailSVG, personSVG } from '../../assets/svgs'
 import { Input } from '../Input'
 import { signUpSchema } from '../../assets/schemas'
+import axios from 'axios'
+import { GO_FINANCE_TOKEN } from '../../assets/tokens'
 
 
 export const SignUpContainer = () => {
@@ -22,20 +24,44 @@ export const SignUpContainer = () => {
         name: '',
         email: '',
         password: '',
-        passwordConfirm: ''
+        password_confirmation: '',
+        termsOfUse: false
     }
     interface SignUpProps {
         name : string
         email : string
         password : string
-        passwordConfirm : string
+        password_confirmation : string
+        termsOfUse? : boolean
     }
     
-    const onSubmitForm = (values : SignUpProps) =>{
+    // const onSubmitForm = (values : SignUpProps) =>{
+    //     axios.post('http://academy-react.rarolabs.com.br/v1/users',
+    //     {
+    //         ...values
+    //       }
+    //     )
+    //       .then((response) => {
+    //         console.log({...values});
+    //         console.log({response});
+    //       })
+    //       .catch((error) => {
+    //         console.log(error);
+    //       });
+    //     console.log('... on submmit', values)
+    // }
+
+
+    const onSubmitForm = async (values : SignUpProps) =>{
+        try{
+            await axios.post('http://academy-react.rarolabs.com.br/v1/users',{...values})
+        }
+        catch(error) {
+            console.log(error);
+        };
         console.log('... on submmit', values)
     }
 
-    
 
 return(
     <div className="rightSide">
@@ -49,7 +75,7 @@ return(
             validationSchema={signUpSchema}
             onSubmit={(values)=>onSubmitForm(values)}
             >
-                {({ isSubmitting, isValid, errors, touched }) => (
+                {({ isSubmitting, isValid, errors, touched,values }) => (
                 <Form className="formEntry">
                     <Input  name='name'
                             placeholder='Nome e Sobrenome'
@@ -69,17 +95,17 @@ return(
                             svg={lockSVG}
                             errors= {touched.password && errors.password}
                             />
-                    <Input  name='passwordConfirm'
+                    <Input  name='password_confirmation'
                             placeholder='Confirma Senha'
                             type='password'
                             svg={lockSVG}
-                            errors= {touched.passwordConfirm && errors.passwordConfirm}
+                            errors= {touched.password_confirmation && errors.password_confirmation}
                             />
-                    <div className="termsOfUse">
-                        <div className="termsCheck"><input  type="checkbox"></input></div>
+                    <label className="termsOfUse">
+                        <div className="termsCheck"><Field name='termsOfUse' type="checkbox" ></Field></div>
                         <span>Declaro que li e concordo com os termos e condições de uso</span>
-                    </div>
-                    <Button disabled={isSubmitting||!isValid} innerText='Cadastrar'/>
+                    </label>
+                    <Button disabled={isSubmitting||!isValid||!values.termsOfUse} innerText='Cadastrar'/>
                     <a className="goBack" href="login.html">Voltar</a>
                 </Form>
                 )}

@@ -23,10 +23,10 @@ export const signUpSchema = Yup.object().shape({
     .required('Digite uma senha').min(4, 'Senha precisa ter no mínimo 4 caracteres')
     .test('teste', 'LÁ ELE!', value => (value.toLowerCase() !== 'l4ele!'))
     .matches(
-        /^(?=.*[aA-zZ])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{4,})/,
+        /^(?=.*[aA-zZ])(?=.*[0-9])(?=.*[-!@#\$%\^&\*])(?=.{4,})/,
         "Senha precisa conter no mínimo 4 caracteres, 1 letra, 1 número e 1 caracter especial"
       ),
-    passwordConfirm : 
+    password_confirmation : 
     Yup.string()            
     .required('Confirme sua senha').oneOf([Yup.ref('password'), ''], 'Senhas não coincidem')
     .test('teste', 'LÁ ELE!', value => (value.toLowerCase() !== 'laele')) 

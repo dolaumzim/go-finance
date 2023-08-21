@@ -12,7 +12,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
 }
 
 export const Input = ({name, svg, type, placeholder, errors} : InputProps) => {
-console.log({errors})
     return(
         <>
             <div className="input">
