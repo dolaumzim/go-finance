@@ -5,10 +5,10 @@ interface InnerText{
     disabled? : boolean
 }
 
-export const Button = ({innerText}: InnerText) => {
+export const Button = ({innerText,disabled}: InnerText) => {
 
 return(
-    <button className="button">
+    <button className="button" disabled={disabled}>
         {innerText}
     </button>
 )

@@ -18,22 +18,17 @@
     transition: ease-out 300ms;
 } 
 
+.rightContainer .button:disabled{
+    background: #BBB; 
+}
+
 .leftContainer .button{
     width: fit-content;
 }
 
 .rightContainer .button{
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: 18px 26px;
-    border-radius: 30px;
-    background: #0575E6;  
-    border-style: none;
-    transition: ease-out 300ms;
     width: 100%;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: #FFF;
 }

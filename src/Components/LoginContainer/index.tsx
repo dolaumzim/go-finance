@@ -1,9 +1,9 @@
 import { Button } from '../Button'
 import { Formik, Form  } from 'formik'
-import * as Yup from 'yup'
 import './styles.css'
 import { lockSVG, mailSVG } from '../../assets/svgs'
 import { Input } from '../Input'
+import { loginSchema } from '../../assets/schemas'
 
 
 export const LoginContainer = () => {
@@ -11,26 +11,14 @@ export const LoginContainer = () => {
         email: '',
         password: ''
     }
-    interface PropsLogin {
+    interface LoginProps {
         email : string
         password : string
     }
-    const checkEmail = (value:string) => (value.split('@')[1].split('.')[0].length) + 
-                                        (value.split('@')[1].split('.')[1].length) > 1
 
-    const onSubmitForm = (values : PropsLogin) =>{
+    const onSubmitForm = (values : LoginProps) =>{
         console.log('... on submmit', values)
     }
-
-    const loginSchema = Yup.object().shape({
-        email: 
-        Yup.string().email('Email inválido').required('Digite um Email')
-        .test('.com','Email inválido', value =>  value.includes('@') && (checkEmail(value))),
-        password : 
-        Yup.string()            
-        .required('Digite uma senha')
-        .test('teste', 'LÁ ELE!', value => (value.toLowerCase() !== 'laele')) 
-      });
 
 return(
     <div className="rightSide">
@@ -39,7 +27,7 @@ return(
                 <p className="main">Login</p>
                 <p className="subtext">Entre ou <a href="register.html">faça seu cadastro</a></p>
             </div>
-            <Formik <PropsLogin>
+            <Formik <LoginProps>
             initialValues={initialValues} 
             validationSchema={loginSchema}
             onSubmit={(values)=>onSubmitForm(values)}
