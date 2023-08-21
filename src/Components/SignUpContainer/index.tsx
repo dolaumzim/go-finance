@@ -1,24 +1,14 @@
+import './styles.css'
 import { Button } from '../Button'
 import { Formik, Form, Field  } from 'formik'
-import './styles.css'
 import { lockSVG, mailSVG, personSVG } from '../../assets/svgs'
 import { Input } from '../Input'
 import { signUpSchema } from '../../assets/schemas'
-import axios from 'axios'
-import { GO_FINANCE_TOKEN } from '../../assets/tokens'
-
+import { SignUpProps } from '../../assets/interfaces'
+import { signUpApi } from '../../assets/API'
+import { Link } from 'react-router-dom';
 
 export const SignUpContainer = () => {
-    const capitalize = (word :string) => {
-    
-    const arr = word.split(" ");
-
-    for (var i = 0; i < arr.length; i++) {
-        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
-        }
-        console.log(arr.join(" "))
-    return arr.join(" ");
-    }
 
     const initialValues : SignUpProps = {
         name: '',
@@ -27,41 +17,16 @@ export const SignUpContainer = () => {
         password_confirmation: '',
         termsOfUse: false
     }
-    interface SignUpProps {
-        name : string
-        email : string
-        password : string
-        password_confirmation : string
-        termsOfUse? : boolean
-    }
-    
-    // const onSubmitForm = (values : SignUpProps) =>{
-    //     axios.post('http://academy-react.rarolabs.com.br/v1/users',
-    //     {
-    //         ...values
-    //       }
-    //     )
-    //       .then((response) => {
-    //         console.log({...values});
-    //         console.log({response});
-    //       })
-    //       .catch((error) => {
-    //         console.log(error);
-    //       });
-    //     console.log('... on submmit', values)
-    // }
-
 
     const onSubmitForm = async (values : SignUpProps) =>{
         try{
-            await axios.post('http://academy-react.rarolabs.com.br/v1/users',{...values})
+            await signUpApi(values)
         }
         catch(error) {
             console.log(error);
         };
         console.log('... on submmit', values)
     }
-
 
 return(
     <div className="rightSide">
@@ -73,7 +38,7 @@ return(
             <Formik <SignUpProps>
             initialValues={initialValues} 
             validationSchema={signUpSchema}
-            onSubmit={(values)=>onSubmitForm(values)}
+            onSubmit={(values,{resetForm})=>{onSubmitForm(values),resetForm()}}
             >
                 {({ isSubmitting, isValid, errors, touched,values }) => (
                 <Form className="formEntry">
@@ -106,7 +71,7 @@ return(
                         <span>Declaro que li e concordo com os termos e condições de uso</span>
                     </label>
                     <Button disabled={isSubmitting||!isValid||!values.termsOfUse} innerText='Cadastrar'/>
-                    <a className="goBack" href="login.html">Voltar</a>
+                    <Link className="goBack" to="/">Voltar</Link>
                 </Form>
                 )}
             </Formik>

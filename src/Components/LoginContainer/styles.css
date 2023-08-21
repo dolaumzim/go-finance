@@ -37,12 +37,12 @@ p{
     margin: 0;
 }
 
-.titleRight a{
+.titleRight Link{
     text-decoration: none;
     font-weight: 600;
 }
 
-.titleRight a:visited{
+.titleRight Link:visited{
     text-decoration: none;
     font-weight: 600;
     color: #0575E6;

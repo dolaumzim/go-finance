@@ -1,15 +1,7 @@
-import { InputHTMLAttributes } from 'react';
 import './styles.css'
-import ErrorMessage, { ErrorMessageType } from '../ErrorMessage'
+import ErrorMessage from '../ErrorMessage'
 import { Field } from 'formik'
-
-
-interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
-
-    errors: ErrorMessageType
-    svg : JSX.Element,
-
-}
+import { InputProps } from '../../assets/interfaces';
 
 export const Input = ({name, svg, type, placeholder, errors} : InputProps) => {
     return(

@@ -1,16 +1,15 @@
 import './App.css'
-import { LeftContainer } from './Components/LeftContainer'
-import { LoginContainer } from './Components/LoginContainer'
-import { SignUpContainer } from './Components/SignUpContainer'
+import { Route, Routes} from "react-router-dom";
+import Login from './Routers/Login';
+import SignUp from './Routers/SignUp';
 
 function App() {
 
   return (
-    <>
-      <LeftContainer/>
-      {/* <LoginContainer/> */}
-      <SignUpContainer/>
-    </>
+    <Routes>
+      <Route index element={<Login/>}/>
+      <Route path="/signup" element={<SignUp/>}/>
+    </Routes>
   )
 }
 

@@ -1,10 +1,7 @@
 import './styles.css'
+import { ErrorMessageProps } from '../../assets/interfaces'
 
 export type ErrorMessageType = string | false | undefined
-
-interface ErrorMessageProps {
-  message: ErrorMessageType
-}
 
 const ErrorMessage = ({ message }: ErrorMessageProps) => {
   return <span className='errorSpan'>{message}</span>

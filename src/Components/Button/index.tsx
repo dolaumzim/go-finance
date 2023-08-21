@@ -1,9 +1,5 @@
 import './styles.css'
-
-interface InnerText{
-    innerText : string
-    disabled? : boolean
-}
+import { InnerText } from '../../assets/interfaces'
 
 export const Button = ({innerText,disabled}: InnerText) => {
 
