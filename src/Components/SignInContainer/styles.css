@@ -14,7 +14,6 @@
     justify-content: center;
     z-index: 1;
     height: 100vh;
-    width: 70%;
     margin-top: 30px;
 }
 
@@ -23,7 +22,6 @@
     flex-direction: column;
     font-size: 18px;
     font-weight: 400;
-    min-width: 300px;
     margin-top: -16px;
     margin-bottom: 20px;
 }
@@ -69,25 +67,6 @@ input{
     font-weight: 400;
 }
 
-.termsOfUse{
-    display: flex;
-    align-items: flex-start;
-    gap: 12px; 
-    color: #4F4F4F;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal; 
-    width: 80%;
-}
-
-.termsCheck{
-    display: flex;
-    padding: 3px 0px;
-    align-items: flex-start;
-    gap: 4px; 
-}
-
 .goBack{
     display: flex;
     align-self: center;
@@ -102,6 +81,36 @@ input{
     color: #0575E6;
 }
 
+.errorSpan{
+    color: #C72323;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+    align-self: center;
+}
+
+@media screen and (max-width: 767px) {
+
+.rightSide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: auto;
+}
+
+.rightContainer{
+    display: flex;
+    flex-direction: column;
+    min-width: 260px;
+    gap: 16px;
+    width: 80%;
+}
 
 
 
+
+
+}

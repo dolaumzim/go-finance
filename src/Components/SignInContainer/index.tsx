@@ -1,16 +1,18 @@
 import './styles.css'
 import { Button } from '../Button'
 import { Formik, Form, Field  } from 'formik'
-import { lockSVG, mailSVG, personSVG } from '../../assets/svgs'
+import { lockSVG, mailSVG, personSVG } from '../../assets/SVG/svgs'
 import { Input } from '../Input'
-import { signUpSchema } from '../../assets/schemas'
-import { SignUpProps } from '../../assets/interfaces'
-import { signUpApi } from '../../assets/API'
-import { Link } from 'react-router-dom';
+import { signInSchema } from '../../assets/schemas'
+import { SignInProps } from '../../assets/interfaces'
+import { signInApi } from '../../assets/API'
+import { Link, useNavigate } from 'react-router-dom';
+import {useState} from 'react'
+import './checkbox.css'
 
-export const SignUpContainer = () => {
+export const SignInContainer = () => {
 
-    const initialValues : SignUpProps = {
+    const initialValues : SignInProps = {
         name: '',
         email: '',
         password: '',
@@ -18,11 +20,18 @@ export const SignUpContainer = () => {
         termsOfUse: false
     }
 
-    const onSubmitForm = async (values : SignUpProps) =>{
+    const navigate = useNavigate()
+    const [badSignIn, setSignIn] = useState('')
+
+    const onSubmitForm = async (values : SignInProps) =>{
         try{
-            await signUpApi(values)
+            const signedUp = await signInApi(values)
+            console.log(signedUp)
+            setSignIn('')
+            navigate('/')
         }
         catch(error) {
+            setSignIn('Ocorreu um erro, tente novamente ou contate o Suporte!')
             console.log(error);
         };
         console.log('... on submmit', values)
@@ -35,12 +44,12 @@ return(
                 <p className="main">Cadastro</p>
                 <p className="subtext">para iniciar</p>
             </div>
-            <Formik <SignUpProps>
+            <Formik <SignInProps>
             initialValues={initialValues} 
-            validationSchema={signUpSchema}
+            validationSchema={signInSchema}
             onSubmit={(values,{resetForm})=>{onSubmitForm(values),resetForm()}}
             >
-                {({ isSubmitting, isValid, errors, touched,values }) => (
+                {({ isSubmitting, isValid, errors, touched, values }) => (
                 <Form className="formEntry">
                     <Input  name='name'
                             placeholder='Nome e Sobrenome'
@@ -67,10 +76,12 @@ return(
                             errors= {touched.password_confirmation && errors.password_confirmation}
                             />
                     <label className="termsOfUse">
-                        <div className="termsCheck"><Field name='termsOfUse' type="checkbox" ></Field></div>
+                        <Field name='termsOfUse' type="checkbox" ></Field>
+                        <span className='checkmark'></span>
                         <span>Declaro que li e concordo com os termos e condições de uso</span>
                     </label>
                     <Button disabled={isSubmitting||!isValid||!values.termsOfUse} innerText='Cadastrar'/>
+                    {badSignIn && <span className='errorSpan'>{badSignIn}</span>}
                     <Link className="goBack" to="/">Voltar</Link>
                 </Form>
                 )}

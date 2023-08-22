@@ -1,7 +1,7 @@
 import { ErrorMessageType } from "../Components/ErrorMessage"
 import { InputHTMLAttributes } from 'react';
 
-export interface SignUpProps {
+export interface SignInProps {
         name : string
         email : string
         password : string

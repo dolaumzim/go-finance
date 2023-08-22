@@ -1,15 +1,15 @@
 import '../App.css'
 import { LeftContainer } from '../Components/LeftContainer'
-import { SignUpContainer } from '../Components/SignUpContainer'
+import { SignInContainer } from '../Components/SignInContainer'
 
-function SignUp() {
+function SignIn() {
 
   return (
     <>
       <LeftContainer/>
-      <SignUpContainer/>
+      <SignInContainer/>
     </>
   )
 }
 
-export default SignUp
+export default SignIn

@@ -1,4 +1,4 @@
-import { Button } from '../Button'
+import { Link } from 'react-router-dom'
 import './styles.css'
 
 export const LeftContainer = () => {
@@ -10,7 +10,7 @@ return(
                 <p className="title">GoFinance</p>
                 <p className="subtitle">O empréstimo ponto a ponto mais popular do mundo</p>
             </div>
-            <Button innerText="Read More"/>
+            <Link className='readMoreButton' to="/construction"> Leia Mais </Link>
         </div>
     </section>
 )

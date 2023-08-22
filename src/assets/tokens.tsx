@@ -1,1 +1,0 @@
-export const GO_FINANCE_TOKEN ='eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMywiZXhwIjoxNjkyNzEyMjE4fQ.C8sJk3SGf7fsfjGxAU0-eXiiDQ2iPY6sisRtGmIK1nw'

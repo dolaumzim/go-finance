@@ -8,6 +8,16 @@
   color: #333;
 }
 
+/* .general{
+  display: flex;
+} */
+
 #root{
   display: flex;
+}
+
+@media screen and (max-width: 767px) {
+  #root{
+    flex-direction: column;
+}
 }
