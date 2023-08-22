@@ -1,0 +1,67 @@
+.termsOfUse{
+    display: flex;
+    align-items: flex-start;
+    gap: 12px; 
+    color: #4F4F4F;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+    width: 90%;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;   
+}
+
+.termsCheck{
+    display: flex;
+    padding: 3px 0px;
+    align-items: flex-start;
+    gap: 4px; 
+}
+  
+  .termsOfUse input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0px;
+    width: 0px;
+  }
+  
+
+  .checkmark {
+    position: relative;
+    align-self: center;
+    top: 0;
+    left: 0;
+    height: 19px;
+    width: 19px;
+    padding: 0 9px;
+    background-color: #eeeeee;
+    border-radius:4px;
+  }
+  
+  .termsOfUse input:checked ~ .checkmark {
+    background-color: #eeeeee;
+  }
+  
+  .checkmark:after {
+    content: "x";
+    position: absolute;
+    display: none;
+    font-size: 14px;
+  }
+  
+  .termsOfUse input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .termsOfUse .checkmark:after {
+    left: 6px;
+    top: -2px;
+    width: 19px;
+    height: 19px;
+
+  }

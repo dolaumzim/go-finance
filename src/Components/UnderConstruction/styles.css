@@ -1,0 +1,48 @@
+.leftSideHome{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: url('src/assets/SVG/ellipses.svg'), linear-gradient(180deg, #0575E6 0%, #02298A 84.79%, #021B79 100%);
+    background-repeat: no-repeat;
+    background-position: 0% 100%;
+    height: 100vh;
+    width: 100vw;  
+    gap: 50px;
+}
+
+.titleHome{
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    margin: 0;
+    font-size: 40px;
+}
+
+.subtitleHome{
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    margin: 0;
+    font-size: 18px;
+}
+
+.homeButton{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 30px;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 30px;
+    background: #0575E6;
+    border-style: none;
+    transition: ease-out 300ms;
+    text-decoration: none;
+}
+
+.homeButton:hover{
+    background-color: #0553A3;
+    transition: ease-out 300ms;
+} 
