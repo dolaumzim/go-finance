@@ -25,8 +25,7 @@ export const SignInContainer = () => {
 
     const onSubmitForm = async (values : SignInProps) =>{
         try{
-            const signedUp = await signInApi(values)
-            console.log(signedUp)
+            await signInApi(values)
             setSignIn('')
             navigate('/')
         }
@@ -34,7 +33,6 @@ export const SignInContainer = () => {
             setSignIn('Ocorreu um erro, tente novamente ou contate o Suporte!')
             console.log(error);
         };
-        console.log('... on submmit', values)
     }
 
 return(

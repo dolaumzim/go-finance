@@ -26,7 +26,6 @@ export const LoginContainer = () => {
             localSet(userById.data)
             setBadLogin('')
             navigate('/home')
-            console.log(userById.data)
         }
           catch(error) {
             setBadLogin('Email ou Senha incorretos!')
