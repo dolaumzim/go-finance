@@ -58,6 +58,7 @@ p{
 input{
     border: 0;
     width: 100%;
+    background-color: #FFF;
 }
 
 ::placeholder{
